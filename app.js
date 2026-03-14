@@ -1,10 +1,23 @@
 function register(){
 
-let user = document.getElementById("user").value
-let pass = document.getElementById("pass").value
+let email=document.getElementById("email").value
+let user=document.getElementById("user").value
+let pass=document.getElementById("pass").value
 
-localStorage.setItem("user",user)
-localStorage.setItem("pass",pass)
+if(!email || !user || !pass){
+
+alert("Заполните все поля")
+return
+
+}
+
+let account={
+email:email,
+user:user,
+pass:pass
+}
+
+localStorage.setItem("account",JSON.stringify(account))
 
 alert("Аккаунт создан")
 
@@ -15,21 +28,31 @@ location.href="login.html"
 
 function login(){
 
-let user = document.getElementById("user").value
-let pass = document.getElementById("pass").value
+let login=document.getElementById("login").value
+let pass=document.getElementById("pass").value
 
-if(user == localStorage.getItem("user") &&
-pass == localStorage.getItem("pass")){
+let acc=JSON.parse(localStorage.getItem("account"))
+
+if(!acc){
+
+alert("Аккаунт не найден")
+return
+
+}
+
+if((login==acc.email || login==acc.user) && pass==acc.pass){
 
 alert("Вход выполнен")
 
-location.href="ai.html"
+localStorage.setItem("logged","true")
+
+location.href="index.html"
 
 }
 
 else{
 
-alert("Неверный логин")
+alert("Неверные данные")
 
 }
 
