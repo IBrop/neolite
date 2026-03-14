@@ -1,0 +1,33 @@
+<h1>NeoLite AI</h1>
+
+<textarea id="msg"></textarea>
+
+<br>
+
+<button onclick="ask()">Спросить</button>
+
+<div id="chat"></div>
+
+<script>
+
+let count = 0
+
+function ask(){
+
+if(count >= 5){
+
+alert("Free лимит закончился")
+
+return
+
+}
+
+let text = document.getElementById("msg").value
+
+document.getElementById("chat").innerHTML += "<p>"+text+"</p>"
+
+count++
+
+}
+
+</script>
