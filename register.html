@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <title>Регистрация</title>
+<link rel="stylesheet" href="style.css">
 <script src="app.js"></script>
 
 </head>
 
 <body>
 
-<h2>Регистрация</h2>
+<div class="form">
+
+<h2>Создать аккаунт</h2>
+
+<input id="email" placeholder="Email">
 
 <input id="user" placeholder="Username">
 
-<br>
-
 <input id="pass" type="password" placeholder="Password">
 
-<br>
+<button onclick="register()">Создать</button>
 
-<button onclick="register()">Создать аккаунт</button>
+<a href="login.html">Уже есть аккаунт?</a>
+
+</div>
 
 </body>
-
 </html>
